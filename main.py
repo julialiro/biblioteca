@@ -47,3 +47,16 @@ def cadastrar_livro():
    # Salva o livro imediatamente
    salvar_livros()
    print("Livro cadastrado com sucesso!")
+# Função para emprestar livros
+def emprestar_livro():
+   codigo = input("Digite o código/ISBN: ")
+   for livro in livros:
+       if livro["codigo"] == codigo:
+           if livro["status"] == "disponível":
+               livro["status"] = "emprestado"
+               salvar_livros()
+               print("Livro emprestado com sucesso!")
+           else:
+               print("Esse livro já está emprestado.")
+           return
+   print("Livro não encontrado.")
