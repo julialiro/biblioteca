@@ -29,3 +29,21 @@ def salvar_livros():
            livro["status"]
        ])
    arquivo.close()
+
+# Função para cadastrar livros
+def cadastrar_livro():
+   titulo = input("Digite o título: ")
+   autor = input("Digite o autor: ")
+   ano = input("Digite o ano de publicação: ")
+   codigo = input("Digite o código/ISBN: ")
+   livro = {
+       "titulo": titulo,
+       "autor": autor,
+       "ano": ano,
+       "codigo": codigo,
+       "status": "disponível"
+   }
+   livros.append(livro)
+   # Salva o livro imediatamente
+   salvar_livros()
+   print("Livro cadastrado com sucesso!")
