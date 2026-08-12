@@ -13,3 +13,19 @@ def carregar_livros():
    except FileNotFoundError:
        # Se o arquivo ainda não existir, ele será criado quando salvar
        pass
+# Salva os livros no arquivo livros.csv
+def salvar_livros():
+   arquivo = open("livros.csv", "w", newline="", encoding="utf-8")
+   escritor = csv.writer(arquivo)
+   # Cria o cabeçalho do arquivo
+   escritor.writerow(["titulo", "autor", "ano", "codigo", "status"])
+   # Salva todos os livros
+   for livro in livros:
+       escritor.writerow([
+           livro["titulo"],
+           livro["autor"],
+           livro["ano"],
+           livro["codigo"],
+           livro["status"]
+       ])
+   arquivo.close()
