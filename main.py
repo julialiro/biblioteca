@@ -87,25 +87,20 @@ def listar_livros():
            print("Código:", livro["codigo"])
            print("Status:", livro["status"])
 # Função para buscar livros
-def buscar_livro():
-   pesquisa = input("Digite o título ou autor: ")
-   encontrou = False
+# Função para listar todos os livros cadastrados
+def listar_livros():
+   if len(livros) == 0:
+       print("\nNenhum livro cadastrado.")
+       return
+   print("\n===== LIVROS CADASTRADOS =====")
    for livro in livros:
-       if pesquisa.lower() in livro["titulo"].lower():
-           print("\nLivro encontrado!")
-           print("Título:", livro["titulo"])
-           print("Autor:", livro["autor"])
-           print("Status:", livro["status"])
-           encontrou = True
-       elif pesquisa.lower() in livro["autor"].lower():
-           print("\nLivro encontrado!")
-           print("Título:", livro["titulo"])
-           print("Autor:", livro["autor"])
-           print("Status:", livro["status"])
-           encontrou = True
-   if encontrou == False:
-       print("Livro não encontrado.")
-
+       print("-----------------------------")
+       print("Título:", livro["titulo"])
+       print("Autor:", livro["autor"])
+       print("Ano:", livro["ano"])
+       print("Código:", livro["codigo"])
+       print("Status:", livro["status"])
+   print("-----------------------------")
 # Função para ordenar os livros
 def ordenar_livros():
    print("\n1 - Por título")
